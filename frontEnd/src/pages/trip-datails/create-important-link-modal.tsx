@@ -42,11 +42,8 @@ export function CreateImportantLinkModal({
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <h2 className="text-lg font-semibold">Cadastrar Link</h2>
-            <button type="button">
-              <X
-                className="size-5 text-zinc-400"
-                onClick={ClosedCreateImportabtLinkModal}
-              />
+            <button type="button" onClick={ClosedCreateImportabtLinkModal}>
+              <X className="size-5 text-zinc-400" />
             </button>
           </div>
           <p className="text-sm text-zinc-400 text-left">
@@ -77,13 +74,13 @@ export function CreateImportantLinkModal({
           </div>
 
           <div className="flex gap-2">
-            <Button
+            {/* <Button
               variant="secondary"
               size="full"
               onClick={ClosedCreateImportabtLinkModal}
             >
               Cancelar
-            </Button>
+            </Button> */}
             <Button variant="primary" size="full">
               Criar Link
             </Button>
