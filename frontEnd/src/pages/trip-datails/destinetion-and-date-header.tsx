@@ -13,23 +13,19 @@ interface Trip {
   is_confirmed: boolean;
 }
 
-export function DestinectionAndDateHeader() {
+interface DestinectionAndDateHeaderProps {
+  openUpdateDestination: () => void;
+}
+
+export function DestinectionAndDateHeader({
+  openUpdateDestination,
+}: DestinectionAndDateHeaderProps) {
   const { tripId } = useParams();
   const [trip, setTrip] = useState<Trip | undefined>();
 
   useEffect(() => {
     api.get(`/trips/${tripId}`).then((response) => setTrip(response.data.trip));
   }, [tripId]);
-
-  // useEffect(() => {
-  //   api
-  //     .get(`/trips/${tripId}`)
-  //     .then((response) => {
-  //       console.log("Dados recebidos:", response.data.trip);
-  //       setTrip(response.data.trip);
-  //     })
-  //     .catch((error) => console.error("Erro na API:", error));
-  // }, [tripId]);
 
   const displayedDate =
     trip?.starts_at && trip?.ends_at
@@ -53,7 +49,7 @@ export function DestinectionAndDateHeader() {
 
         <div className="w-px h-6 bg-zinc-800" />
 
-        <Button variant="secondary">
+        <Button variant="secondary" onClick={openUpdateDestination}>
           Alterar local/data
           <Settings2 className="size-5" />
         </Button>

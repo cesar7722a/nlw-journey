@@ -6,11 +6,13 @@ import { Guests } from "./guests";
 import { Activity } from "./activity";
 import { DestinectionAndDateHeader } from "./destinetion-and-date-header";
 import { CreateImportantLinkModal } from "./create-important-link-modal";
+import { UpdateDestinationModal } from "./update-date-destination-step-modal";
 
 export function TripDetailsPage() {
   const [isCreateActivityModal, setIsCreateActivityModal] = useState(false);
   const [isCreateImportabtLinkModal, setIsCreateImportabtLinkModal] =
     useState(false);
+  const [isUpdateDestination, setIsUpdateDestination] = useState(false);
 
   function openCreateActivityModal() {
     setIsCreateActivityModal(true);
@@ -23,13 +25,24 @@ export function TripDetailsPage() {
   function OpenCreateImportabtLinkModal() {
     setIsCreateImportabtLinkModal(true);
   }
+
   function ClosedCreateImportabtLinkModal() {
     setIsCreateImportabtLinkModal(false);
   }
 
+  function openUpdateDestination() {
+    return setIsUpdateDestination(true);
+  }
+
+  function closeUpdateDestination() {
+    return setIsUpdateDestination(false);
+  }
+
   return (
     <div className="max-w-6xl px-6 py-10 mx-auto space-y-8">
-      <DestinectionAndDateHeader />
+      <DestinectionAndDateHeader
+        openUpdateDestination={openUpdateDestination}
+      />
 
       <main className="flex gap-16 px-4">
         <div className="flex-1 space-y-6">
@@ -66,6 +79,12 @@ export function TripDetailsPage() {
       {isCreateImportabtLinkModal && (
         <CreateImportantLinkModal
           ClosedCreateImportabtLinkModal={ClosedCreateImportabtLinkModal}
+        />
+      )}
+
+      {isUpdateDestination && (
+        <UpdateDestinationModal
+          closeUpdateDestination={closeUpdateDestination}
         />
       )}
     </div>
