@@ -74,13 +74,6 @@ export function CreateImportantLinkModal({
           </div>
 
           <div className="flex gap-2">
-            {/* <Button
-              variant="secondary"
-              size="full"
-              onClick={ClosedCreateImportabtLinkModal}
-            >
-              Cancelar
-            </Button> */}
             <Button variant="primary" size="full">
               Criar Link
             </Button>
