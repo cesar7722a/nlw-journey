@@ -57,7 +57,7 @@ export function ConfirmTripModal({
             <input
               name="name"
               placeholder="Seu nome completo"
-              className="bg-transparent text-lg placeholder-zinc-400 w-48 outline-none"
+              className="bg-transparent text-lg placeholder-zinc-400 w-full outline-none"
               onChange={(event) => setOwnerName(event.target.value)}
             />
           </div>
@@ -68,7 +68,7 @@ export function ConfirmTripModal({
               type="email"
               name="email"
               placeholder="Seu email pessoal"
-              className="bg-transparent text-lg placeholder-zinc-400 w-48 outline-none"
+              className="bg-transparent text-lg placeholder-zinc-400 w-full outline-none"
               onChange={(event) => setOwnerEmail(event.target.value)}
             />
           </div>

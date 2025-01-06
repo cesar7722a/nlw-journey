@@ -89,15 +89,6 @@ export function CreateTripPage() {
       return;
     }
 
-    console.log({
-      destination,
-      starts_at: eventStartEndDates.from.toISOString(),
-      ends_at: eventStartEndDates.to.toISOString(),
-      emails_to_invite: emailToInvite,
-      owner_name: ownerName,
-      owner_email: ownerEmail,
-    });
-
     const response = await api.post(`/trips`, {
       destination,
       starts_at: eventStartEndDates?.from.toISOString(),

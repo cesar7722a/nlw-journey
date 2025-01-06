@@ -20,9 +20,6 @@ export function CreateImportantLinkModal({
     const title = data.get(`titleLink`);
     const url = data.get(`urlLink`);
 
-    console.log(title);
-    console.log(url);
-
     await api.post(
       `/trips/${tripId}/links
     `,

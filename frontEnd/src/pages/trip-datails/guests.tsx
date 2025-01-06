@@ -11,7 +11,11 @@ interface Participants {
   is_confirmed: boolean;
 }
 
-export function Guests() {
+interface GuestProps {
+  openAddConvidadosModal: () => void;
+}
+
+export function Guests({ openAddConvidadosModal }: GuestProps) {
   const { tripId } = useParams();
   const [participants, setParticipants] = useState<Participants[]>([]);
 
@@ -46,23 +50,9 @@ export function Guests() {
         </div>
       ))}
 
-      {/* <div className="space-y-5">
-        <div className="flex items-center justify-between gap-4">
-          <div className="space-y-1.5">
-            <span className="block font-medium text-zinc-100">
-              Dr. Rita Pacocha
-            </span>
-            <span className="block text-sm text-zinc-400 truncate">
-              jessica.White44@yahoo.com
-            </span>
-          </div>
-          <CircleDashed className="text-zinc-400 size-5 shrink-0" />
-        </div>
-      </div> */}
-
-      <Button variant="secondary" size="full">
+      <Button variant="secondary" size="full" onClick={openAddConvidadosModal}>
         <UserCog className="size-5" />
-        Gerenciar Convidados
+        Adicionar Convidado
       </Button>
     </div>
   );

@@ -7,12 +7,14 @@ import { Activity } from "./activity";
 import { DestinectionAndDateHeader } from "./destinetion-and-date-header";
 import { CreateImportantLinkModal } from "./create-important-link-modal";
 import { UpdateDestinationModal } from "./update-date-destination-step-modal";
+import { AddConvidadosModal } from "./add-convidados-modal";
 
 export function TripDetailsPage() {
   const [isCreateActivityModal, setIsCreateActivityModal] = useState(false);
   const [isCreateImportabtLinkModal, setIsCreateImportabtLinkModal] =
     useState(false);
   const [isUpdateDestination, setIsUpdateDestination] = useState(false);
+  const [isAddConvidadosModal, setIsAddConvidadosModal] = useState(false);
 
   function openCreateActivityModal() {
     setIsCreateActivityModal(true);
@@ -36,6 +38,14 @@ export function TripDetailsPage() {
 
   function closeUpdateDestination() {
     return setIsUpdateDestination(false);
+  }
+
+  function openAddConvidadosModal() {
+    return setIsAddConvidadosModal(true);
+  }
+
+  function closeAddConvidadosModal() {
+    return setIsAddConvidadosModal(false);
   }
 
   return (
@@ -66,7 +76,7 @@ export function TripDetailsPage() {
           />
 
           <div className="w-full h-px bg-zinc-800" />
-          <Guests />
+          <Guests openAddConvidadosModal={openAddConvidadosModal} />
         </div>
       </main>
 
@@ -86,6 +96,10 @@ export function TripDetailsPage() {
         <UpdateDestinationModal
           closeUpdateDestination={closeUpdateDestination}
         />
+      )}
+
+      {isAddConvidadosModal && (
+        <AddConvidadosModal closeAddConvidadosModal={closeAddConvidadosModal} />
       )}
     </div>
   );
